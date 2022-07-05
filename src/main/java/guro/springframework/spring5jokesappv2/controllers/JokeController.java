@@ -11,14 +11,16 @@ public class JokeController {
 
     private final JokeService jokeService;
 
+
     public JokeController(JokeService jokeService) {
         this.jokeService = jokeService;
     }
 
+
     @RequestMapping({"/",""})
     public String showJoke(Model model){
         model.addAttribute("joke",jokeService.getJoke());
-
+        model.addAttribute("line",jokeService.getLine());
         return "index";
     }
 }
